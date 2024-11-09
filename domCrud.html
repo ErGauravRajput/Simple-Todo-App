@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>crud</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="style1.css"/>
+        <style>
+            body{
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Simple DOM ToDo App</h1>
+            <input type="text" id="inputfield"/>
+            <button class="btn" id="to">Click Me</button>
+            <div class="todoelements"></div>
+        </div>
+        <script>
+            let inputele=document.getElementById("inputfield");
+            // let clickbtn=document.querySelector(".btn");
+            let clickbtn=document.getElementById("to");
+            let todoele=document.querySelector(".todoelements");
+
+            const addtodo=()=>{
+                // console.log(inputele.value);
+                let pele=document.createElement("p");
+                pele.textContent=inputele.value;
+                todoele.append(pele);
+                inputele.value="";
+            };
+            clickbtn.addEventListener("click",()=>{
+                addtodo();
+            });
+            todoele.addEventListener("click",(event)=>{
+                let currele=event.target;
+                currele.remove();
+            });
+            
+        </script>
+    </body>
+</html>
